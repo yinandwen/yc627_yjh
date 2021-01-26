@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mryin.shyc.yc627_yjh.mapper.DescMapper">
+    <select id="getAllDesc" resultType="com.mryin.shyc.yc627_yjh.pojo.Desc">
+        select * from `desc` order by id
+    </select>
+
+    <delete id="deleteDesc" parameterType="java.lang.Integer">
+        delete from `desc` where id = #{id}
+    </delete>
+
+    <insert id="addDesc" parameterType="com.mryin.shyc.yc627_yjh.pojo.Desc">
+        insert into `desc`(id , projectId , problemType , problemDesc , projectManager , startDate , image) values (#{id} , #{projectId} , #{problemType} , #{problemDesc} , #{projectManager} , #{startDate} , #{image})
+    </insert>
+
+    <update id="updateDesc" parameterType="com.mryin.shyc.yc627_yjh.pojo.Desc">
+        update `desc` set id = #{id} , projectId = #{projectId} , problemType = #{problemType} , problemDesc = #{problemDesc} , projectManager = #{projectManager} , startDate = #{startDate} , image = #{image} where id = #{id}
+    </update>
+
+    <select id="getAllDescById" parameterType="java.lang.Integer" resultType="com.mryin.shyc.yc627_yjh.pojo.Desc">
+        select * from `desc` where id = #{id}
+    </select>
+</mapper>
